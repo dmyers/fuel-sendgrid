@@ -8,6 +8,10 @@ A super simple SendGrid package for the SendGrid PHP SDK for Fuel.
 
 ## Installation
 
+Simply add the following to your composer.json require block:
+
+	'sendgrid/sendgrid'
+
 ### Git Submodule
 
 If you are installing this as a submodule (recommended) in your git repo root, run this command:
@@ -18,7 +22,7 @@ Then you you need to initialize and update the submodule:
 
 	$ git submodule update --init --recursive fuel/packages/sendgrid/
 
-###Download
+### Download
 
 Alternatively you can download it and extract it into `fuel/packages/sendgrid/`.
 

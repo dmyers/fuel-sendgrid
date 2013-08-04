@@ -1,3 +1,0 @@
-[submodule "vendor/sendgrid-sdk"]
-	path = vendor/sendgrid-sdk
-	url = git://github.com/sendgrid/sendgrid-php.git
