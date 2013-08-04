@@ -26,6 +26,25 @@ Then you you need to initialize and update the submodule:
 
 Alternatively you can download it and extract it into `fuel/packages/sendgrid/`.
 
+## Configuration
+
+Configuration is easy. First thing you will need to do is to [signup with SendGrid](http://sendgrid.com) (if you haven't already).
+
+Next, copy the `config/sendgrid.php` from the package up into your `app/config/` directory. Open it up and enter your API keys.
+
+## Usage
+
+```php
+$sendgrid = Sendgrid::instance();
+$mail = SendGrid_Mail::forge();
+
+$mail->addTo('ives@apple.com')
+	->setSubject('The Future')
+	->setHtml('<h1>Lorem Ipsum</h1>');
+
+$sendgrid->send($mail);
+```
+
 ## Updates
 
 In order to keep the package up to date simply run:
