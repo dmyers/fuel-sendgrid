@@ -45,6 +45,8 @@ $mail->addTo('ives@apple.com')
 $sendgrid->send($mail);
 ```
 
+For more examples, check out the [Sendgrid PHP SDK](https://github.com/sendgrid/sendgrid-php).
+
 ## Updates
 
 In order to keep the package up to date simply run:
