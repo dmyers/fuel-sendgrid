@@ -14,8 +14,8 @@ class Sendgrid_Mail extends \SendGrid\Mail
 		$config = \Config::get('sendgrid.from');
 		
 		$instance = new static();
-		$instance->setFrom($config['email']);
-		$instance->setFromName($config['name']);
+		$instance->setFrom(\Arr::get($config, 'email'));
+		$instance->setFromName(\Arr::get($config, 'name'));
 		
 		return $instance;
 	}
