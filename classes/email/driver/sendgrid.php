@@ -4,13 +4,6 @@ namespace Sendgrid;
 
 class Email_Driver_Sendgrid extends \Email_Driver
 {
-	protected $meta = array();
-	
-	public function meta(array $meta = array())
-	{
-		$this->meta = $meta;
-	}
-	
 	protected function _send()
 	{
 		$sendgrid = \Sendgrid::instance();
