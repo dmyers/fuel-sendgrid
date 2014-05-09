@@ -4,7 +4,7 @@ namespace Sendgrid;
 
 class Email_Driver_Sendgrid extends \Email_Driver
 {
-	protected function _send()
+	public function send($validate = null)
 	{
 		$sendgrid = \Sendgrid::instance();
 		
@@ -53,8 +53,9 @@ class Email_Driver_Sendgrid extends \Email_Driver
 		$email->setSubject($subject);
 		
 		$body = $this->get_body();
+		$type = $this->get_mail_type();
 		
-		if ($this->type == 'plain') {
+		if ($type == 'plain') {
 			$email->setText($body);
 		}
 		else {
@@ -63,4 +64,6 @@ class Email_Driver_Sendgrid extends \Email_Driver
 		
 		return $sendgrid->send($email);
 	}
+	
+	protected function _send() {}
 }
