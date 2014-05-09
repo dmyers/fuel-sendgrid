@@ -37,13 +37,13 @@ Next, copy the `config/sendgrid.php` from the package up into your `app/config/`
 
 ```php
 $sendgrid = Sendgrid::instance();
-$mail = SendGrid_Mail::forge();
+$email = SendGrid_Email::forge();
 
-$mail->addTo('ives@apple.com')
+$email->addTo('ives@apple.com')
 	->setSubject('The Future')
 	->setHtml('<h1>Lorem Ipsum</h1>');
 
-$sendgrid->send($mail);
+$sendgrid->send($email);
 ```
 
 For more examples, check out the [Sendgrid PHP SDK](https://github.com/sendgrid/sendgrid-php).

@@ -15,7 +15,7 @@ class Email_Driver_Sendgrid extends \Email_Driver
 	{
 		$sendgrid = \Sendgrid::instance();
 		
-		$mail = \Sendgrid_Mail::forge();
+		$email = \Sendgrid_Email::forge();
 		
 		$from = $this->get_from();
 		$from_name = \Arr::get($from, 'name');
@@ -24,50 +24,50 @@ class Email_Driver_Sendgrid extends \Email_Driver
 		$reply_to = $this->get_reply_to();
 		
 		foreach ($reply_to as $key => $reply_to) {
-			$mail->setReplyTo(\Arr::get($reply_to, 'email'));
+			$email->setReplyTo(\Arr::get($reply_to, 'email'));
 		}
 		
 		$to = $this->get_to();
 		
 		foreach ($to as $key => $to) {
-			$mail->addTo(\Arr::get($to, 'email'), \Arr::get($to, 'name'));
+			$email->addTo(\Arr::get($to, 'email'), \Arr::get($to, 'name'));
 		}
 		
 		$cc = $this->get_cc();
 		
 		foreach ($cc as $key => $cc) {
-			$mail->addCc(\Arr::get($cc, 'email'));
+			$email->addCc(\Arr::get($cc, 'email'));
 		}
 		
 		$bcc = $this->get_bcc();
 		
 		foreach ($bcc as $key => $bcc) {
-			$mail->addBcc(\Arr::get($bcc, 'email'));
+			$email->addBcc(\Arr::get($bcc, 'email'));
 		}
 		
 		$config = \Config::get('sendgrid.from');
 		
 		if (!empty($from_name) && !empty($from_email)) {
-			$mail->setFromName($from_name);
-			$mail->setFrom($from_email);
+			$email->setFromName($from_name);
+			$email->setFrom($from_email);
 		}
 		
 		foreach ($this->meta as $key => $value) {
-			$mail->addUniqueArgument($key, $value);
+			$email->addUniqueArgument($key, $value);
 		}
 		
 		$subject = $this->get_subject();
-		$mail->setSubject($subject);
+		$email->setSubject($subject);
 		
 		$body = $this->get_body();
 		
 		if ($this->type == 'plain') {
-			$mail->setText($body);
+			$email->setText($body);
 		}
 		else {
-			$mail->setHtml($body);
+			$email->setHtml($body);
 		}
 		
-		return $sendgrid->send($mail);
+		return $sendgrid->send($email);
 	}
 }

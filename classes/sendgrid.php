@@ -78,15 +78,15 @@ class Sendgrid
 	/**
 	 * Sends the email through the web API.
 	 *
-	 * @param SendGrid_Mail $mail The mail object to send.
+	 * @param SendGrid_Email $email The email object to send.
 	 *
 	 * @return mixed
 	 */
-	public function send($mail)
+	public function send($email)
 	{
 		$api = new \SendGrid\Web($this->username, $this->password);
 		
-		return $api->send($mail);
+		return $api->send($email);
 	}
 }
 

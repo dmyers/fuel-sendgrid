@@ -2,12 +2,12 @@
 
 namespace Sendgrid;
 
-class Sendgrid_Mail extends \SendGrid\Mail
+class Sendgrid_Email extends \SendGrid\Mail
 {
 	/**
-	 * Returns a new Sendgrid Mail object.
+	 * Returns a new Sendgrid Email object.
 	 *
-	 * @return Sendgrid_Mail
+	 * @return Sendgrid_Email
 	 */
 	public static function forge()
 	{
